@@ -70,9 +70,33 @@ public class Main {
 //        System.out.println("res: "+res);
 
 //        Lt1590
-        int[] nums = {26,19,11,14,18,4,7,1,30,23,19,8,10,6,26,3};
-        Lt1590 lt1590 = new Lt1590();
-        int res = lt1590.minSubarray(nums, 26);
+//        int[] nums = {26,19,11,14,18,4,7,1,30,23,19,8,10,6,26,3};
+//        Lt1590 lt1590 = new Lt1590();
+//        int res = lt1590.minSubarray(nums, 26);
+//        System.out.println("res: "+res);
+
+//        Lt3771
+//        int[] damage = {3, 6, 7};
+//        int[] rq = {4, 2, 5};
+//        Lt3771 lt3771 = new Lt3771();
+//
+//        long res = lt3771.totalScore(11, damage, rq);
+//        System.out.println("res: "+res);
+
+//        Lt3352
+//        Lt3352 lt3352 = new Lt3352();
+//        int res = lt3352.countKReducibleNumbers("11", 1);
+//        System.out.println("res: "+res);
+
+//        Lt1139
+//        int[][] grid = {{0,1,0,1,1},{1,1,1,1,1},{1,1,0,1,1},{1,1,1,1,0},{0,1,1,1,1},{1,1,1,0,1},{0,1,1,1,1},{1,1,1,0,1}};
+//        Lt1139 lt1139 = new Lt1139();
+//        int res = lt1139.largest1BorderedSquare(grid);
+//        System.out.println("res: "+res);
+
+//        Lt1745
+        Lt1745 lt1745 = new Lt1745();
+        boolean res = lt1745.checkPartitioning("acab");
         System.out.println("res: "+res);
     }
 }

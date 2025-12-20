@@ -13,5 +13,12 @@ public class Main {
         Third th = new Third();
         int[] res = th.sumAndMultiply("10203004", queries);
         System.out.println("res: "+ Arrays.toString(res));
+
+        int mod = 1000000007;
+        int a = (int)((long)(mod-20)*2)%mod;
+        int b = (a*((int)Math.pow(2, -1)%mod))%mod;
+        System.out.println("a: "+a);
+        System.out.println("b: "+b);
+        System.out.println("equals: "+((mod-20)==b));
     }
 }
