@@ -1,29 +1,31 @@
 import java.util.*;
 
-class Solution {
+class Lt2092 {
     public List<Integer> findAllPeople(int n, int[][] meetings, int firstPerson) {
-
         Graph g = new Graph(n, meetings);
 
-        List<Integer> res = g.djx(firstPerson);
-
-        Collections.sort(res);
-
-        return new ArrayList<>(new LinkedHashSet<>(res));
+        g.djx(firstPerson);
+        List<Integer> res = new ArrayList<>();
+        for(int i=0; i<n; i++){
+            if(g.visited[i])    res.add(i);
+        }
+        return res;
     }
 
     class Graph{
 
         int nodes;
-//        Map<Integer, ArrayList<Pair>> edges = new HashMap<>();
-
-        List<int[]>[] edges = new ArrayList[nodes];
+        List<int[]>[] edges;
         boolean[] visited;
 
         Graph(int n, int[][] B){
             nodes = n;
 
             visited = new boolean[n];
+            edges = new ArrayList[nodes];
+            for(int i=0; i<n; i++){
+                edges[i] = new ArrayList<>();
+            }
 
             for(int[] vals: B){
                 edges[vals[0]].add(new int[]{vals[1], vals[2]});
@@ -31,43 +33,23 @@ class Solution {
             }
         }
 
-        List<Integer> djx(int startNode){
+        void djx(int startNode){
 
-            List<Integer> res = new ArrayList<>();
-            // res.add(0);
-            int t=0;
-            PriorityQueue<Pair> pq = new PriorityQueue<>((a, b) -> Integer.compare(a.w, b.w));
-            pq.add(new Pair(0, 0));
-            pq.add(new Pair(startNode, 0));
+            PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> Integer.compare(a[1], b[1]));
+            pq.add(new int[]{0, 0});
+            pq.add(new int[]{startNode, 0});
 
             while(!pq.isEmpty()){
-                Pair p = pq.poll();
+                int[] p = pq.poll();
 
-                visited[p.n] = true;
-                res.add(p.n);
-                if(edges[p.n]==null){
-                    continue;
-                }
-                for(int[] nextPerson : edges[p.n])){
-                    if(nextPerson[1]>=p.w && !visited[nextPerson.n]){
-                        pq.add(nextPair);
+                visited[p[0]] = true;
+
+                for(int[] nextPerson : edges[p[0]]){
+                    if(nextPerson[1]>=p[1] && !visited[nextPerson[0]]){
+                        pq.add(nextPerson);
                     }
                 }
             }
-
-            return res;
-
-        }
-
-
-    }
-
-    class Pair{
-        int n;
-        int w;
-        Pair(int n, int w){
-            this.n = n;
-            this.w = w;
         }
     }
 }
