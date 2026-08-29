@@ -211,8 +211,27 @@ public class Main {
 //        System.out.println("res: "+res);
 
 //        Lt3753
-        Lt3753 lt3753 = new Lt3753();
-        long res = lt3753.totalWaviness(120, 130);
-        System.out.println("res: "+res);
+//        Lt3753 lt3753 = new Lt3753();
+//        long res = lt3753.totalWaviness(120, 130);
+//        System.out.println("res: "+res);
+
+//        Lt207
+//        int[][] prerequisites = {{1,4},{2,4},{3,1},{3,2}};
+//        Lt207 lt207 = new Lt207();
+//        boolean res = lt207.canFinish(5, prerequisites);
+//        System.out.println("res: "+res);
+
+//        Lt210
+//        int[][] prerequisites = {{1,4},{2,4},{3,1},{3,2}};
+//        Lt210 lt210 = new Lt210();
+//        int[] res = lt210.findOrder(5, prerequisites);
+//        System.out.println("res: "+Arrays.toString(res));
+
+//        Lt851
+        int[][] richer = {{1,0},{2,1},{3,1},{3,7},{4,3},{5,3},{6,3}};
+        int[] quiet = {3,2,5,4,6,1,7,0};
+        Lt851 lt851 = new Lt851();
+        int[] res = lt851.loudAndRich(richer, quiet);
+        System.out.println("res: "+Arrays.toString(res));
     }
 }
